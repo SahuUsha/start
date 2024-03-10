@@ -1,0 +1,115 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    background-image: url(OIP.jpeg);
+     /* background-color: rgb(2, 3, 20); */
+opacity: 2.4;
+    
+}
+h2 {
+    text-align: center; 
+    
+    color: white;
+    font-size: 3.2em;
+    margin-bottom: 18px; 
+    margin-left: 2.8rem ;
+  
+    font-style: italic;
+    text-shadow: 2px 2px 2px red;
+   
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+
+.memory-game {
+    /* border: 2px solid black; */
+    width: 540px;
+    height: 520px;
+    padding: 9px;
+    margin-top: 20px; 
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    border-radius: 8px;
+    background: linear-gradient(to top right,rgb(11, 11, 11),rgb(55, 55, 55),rgb(235, 238, 233));
+
+}
+
+
+
+.memory-card{
+    width:calc(25% - 10px);
+    height:calc(33.333%-10px);
+    position: relative;
+    margin: 5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    border: 2px solid white;
+    transition:  .5s;
+   }
+   .memory-card:active{
+       transform: scale(.97);
+      transition: transform.2s;
+   }
+   .memory-card.flip{
+    transform: rotateY(180deg);
+   }
+.front-face,
+.back-face{
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    position: absolute;
+  
+    backface-visibility: hidden;
+}
+.front-face{
+    transform: rotateY(180deg);
+}
+img{
+    width: 130px;
+}
+.memory-game::before{
+    content: '';
+    position: absolute;
+    
+     top: 2.5PX;
+    left:2.5PX;
+    right: 2.5PX;
+    bottom: 2.5PX; 
+   
+ 
+    background: #fff;
+    z-index: -1;
+    /* filter: blur(40px); */
+}
+.memory-game::after{
+    content: '';
+    position: absolute; 
+    top: -2PX;
+    left: -2PX;
+    right: -2PX;
+    /* bottom: -2PX;  */
+     background: #fff;
+    z-index: -2; 
+    /* filter: blur(400px); */
+}
+.memory-game::before,
+.memory-game::after{
+    background : linear-gradient(35deg,rgb(0, 255, 238),black,black,rgb(85, 255, 0));
+   
+    
+}
